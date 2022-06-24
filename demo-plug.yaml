@@ -1,0 +1,24 @@
+# These substitutions allow the end user to override certain values
+substitutions:
+  # Device Names
+  name: "demo-plug"
+  friendly_name: "Demo Plug"
+  
+  # Icon
+  main_icon: "power-socket-uk"
+
+  # Default Relay State
+  # Aka: `restore_mode` in documentation
+  # Options: `RESTORE_DEFAULT_OFF`, `RESTORE_DEFAULT_ON`, `ALWAYS_ON` & `ALWAYS_OFF`
+  default_state: "RESTORE_DEFAULT_OFF"
+  
+  # ota update password
+  ota_password: "otapassword"
+  
+  # backup ap password
+  ap_password: "appassword"
+  
+  # home assistant api encryption key
+  api_encryption_key: "CgVtOU9kGNiXwWV/O0sCRf19zTtU7xHXICo5AhHAeHk="
+
+<<: !include localbytes-plug-pm.yaml

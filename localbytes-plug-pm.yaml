@@ -1,23 +1,6 @@
-# These substitutions allow the end user to override certain values
-substitutions:
-  # Device Names
-  name: "localbytes-plug-pm"
-  friendly_name: "Localbytes Plug PM"
-  
-  # Icon
-  main_icon: "power-socket-uk"
-
-  # Default Relay State
-  # Aka: `restore_mode` in documentation
-  # Options: `RESTORE_DEFAULT_OFF`, `RESTORE_DEFAULT_ON`, `ALWAYS_ON` & `ALWAYS_OFF`
-  default_state: "RESTORE_DEFAULT_OFF"
-
 
 esphome:
   name: "${name}"
-  # Automatically add the mac address to the name
-  # so you can use a single firmware for all devices
-  name_add_mac_suffix: true
 
   # This will allow for (future) project identification,
   # configuration and updates.
@@ -32,7 +15,7 @@ esp8266:
 logger:
 
 ota:
-
+  password: "${ota_password}"
 # This should point to the public location of this yaml file.
 dashboard_import:
   package_import_url: github://JamesSwift/localbytes-plug-pm/localbytes-plug-pm.yaml@main
@@ -40,8 +23,11 @@ dashboard_import:
 wifi:
   output_power: 18db
   power_save_mode: light
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   ap:
     ssid: "${friendly_name}"
+    password: "${ap_password}"
 
 captive_portal:
 
@@ -53,6 +39,8 @@ time:
     timezone: Europe/London
 
 api:
+  encryption:
+    key: "${api_encryption_key}"
   services:
     - service: calibrate_voltage
       variables:

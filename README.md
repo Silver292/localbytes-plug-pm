@@ -27,6 +27,10 @@ At this point you can use the "dashboard import" feature of esphome to take owne
 
 Alternatively, if you don't want to import the plug to your ESPHome dashboard, connect to the hotpsot the device creates and use the web UI to flash the <a href="https://github.com/JamesSwift/localbytes-plug-pm/releases/latest/download/localbytes-plug-pm.bin">full firmware</a> from the latest release.
 
+# Templating
+
+To create devices with different names and the same base configuration. Copy the demo-plug.yaml and change the name and variables.
+
 # Calibration
 
 Once you have flashed the new firmware onto your smart plug and connected it to home assistant, you may wish to calibrate your plug to improve it's accuracy. To calibrate your plug, you need another "known-good" smart plug or a calibration device.
